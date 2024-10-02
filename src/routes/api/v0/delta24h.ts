@@ -36,7 +36,7 @@ route.GET = async ({ searchParams }) => {
       "symbol"
     )}`
   );
-  return new Response(JSON.stringify(parseFloat(data.data.priceChangePercent)));
+  return new Response(data.data.priceChangePercent);
 };
 
 export const { GET } = route;
