@@ -17,7 +17,7 @@ route.GET = async ({ searchParams }) => {
       "symbol"
     )}`
   );
-  return new Response(data.data.price);
+  return new Response(data.data.price.replace(".", ","));
 };
 
 export const { GET } = route;
