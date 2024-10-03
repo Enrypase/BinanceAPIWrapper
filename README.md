@@ -4,7 +4,7 @@
 
 It seems like that there's no easy way to get cryptocurrencies data and importing it in google spreadsheets without going crazy.
 
-Since binance provides (currently) a free (of money and of API Key) access to crypto token prices, I created a simple API Wrapper that returns only the desired data.
+Since binance provides (currently) a free (of charge and of API Key) access to crypto token prices, I created a simple API Wrapper that returns only the desired data.
 
 ### General Istructions
 
@@ -26,5 +26,8 @@ Importing data is a little bit tricky. I'm not sure if it's the local (italian) 
 So I "simply" solved it by returning a simple string "Data:< float_number >" and by replacing chars/string with google spreadsheets function REPLACE(). Not the best solution, but it works enough to make it decent.
 
 Example (Italian language):
-`=SOSTITUISCI(SOSTITUISCI(IMPORTDATA("http://<BASE_URI>/api/v0/price?symbol=ICPEUR&"&A1); "Data:"; ""); "."; ",")` Where A1 is a cell that I use to trigger a global update when modified - otherwise it seems like that there's no way of triggering IMPORTDATA every interval of time
+
+`=SOSTITUISCI(SOSTITUISCI(IMPORTDATA("http://<BASE_URI>/api/v0/price?symbol=ICPEUR&"&A1); "Data:"; ""); "."; ",")` <br/>
+Where A1 is a cell that I use to trigger a global update when modified - otherwise it seems like that there's no way of triggering IMPORTDATA every interval of time 
+
 `SOSTITUISCI(SOSTITUISCI(IMPORTDATA("http://<BASE_URI>/api/v0/delta24h?symbol=ICPEUR&"&A1); "Data:"; ""); "."; ",")`
